@@ -1,0 +1,53 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sep 2017
+
+@author: Vidya shree
+"""
+
+import pandas as pd
+import numpy as np
+from sklearn.ensemble.forest import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score
+
+sales_data = pd.read_csv('../Spain_stores/store_sales.csv')
+sales_data = sales_data[['sales', 'no_of_tourist','no_of_products','number_of_PoI','radius_of_influence','province']]
+
+x=sales_data[[ 'no_of_tourist','no_of_products','number_of_PoI','radius_of_influence','province']]
+
+y=sales_data['sales']
+
+xtrain, xtest, ytrain, ytest = train_test_split(x, y, test_size = 0.2, random_state = 0)
+
+
+# RF model
+RF_Model = RandomForestRegressor(n_estimators=500,
+                                 max_features=3, oob_score=True)
+ 
+# model fitting
+labels = ytrain
+features = xtrain
+ 
+# Fit the RF model with features and labels.
+rgr=RF_Model.fit(features, labels)
+ 
+Xtestpredict=pd.DataFrame(
+    rgr.predict(xtest))
+
+Xtrainpredict=pd.DataFrame(
+    rgr.predict(xtrain))
+
+# combine the training and testing dataframes to visualize
+# and compare.
+predictions = Xtrainpredict.append(Xtestpredict)
+
+    
+RSquared = r2_score(ytrain, Xtrainpredict.values)
+
+err = abs(predictions - xtest)
+MAE=np.mean(err)
+
+mape = 100 * (err / xtest)
+
+accuracy = 100 - np.mean(MAE)
