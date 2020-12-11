@@ -14,8 +14,8 @@ library(earth)
 
 
 
-input<-read_read_excel('C:/Users/vidya.suresh/Documents/Personal/Booking.com/Bookings_channel_spend.xlsx')
-to_predict<-read_excel('C:/Users/vidya.suresh/Documents/Personal/Booking.com/To_be_predicted.xlsx')
+input<-read_read_excel('C:/Users/vidya.suresh/Documents/Personal/Bookings_channel_spend.xlsx')
+to_predict<-read_excel('C:/Users/vidya.suresh/Documents/Personal/To_be_predicted.xlsx')
 
 ##---------------------Preliminary data analysis------------------------------##
 
