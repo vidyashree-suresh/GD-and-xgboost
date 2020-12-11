@@ -17,8 +17,8 @@ library(rfUtilities)
 
 
 
-train_dataset<-read_excel('C:/Users/vidya.suresh/Documents/Personal/Booking.com/Lifetime_value.xlsx')
-test_dataset<-read_excel('C:/Users/vidya.suresh/Documents/Personal/Booking.com/LTV_ test_set.xlsx')
+train_dataset<-read_excel('C:/Users/vidya.suresh/Documents/Personal/Lifetime_value.xlsx')
+test_dataset<-read_excel('C:/Users/vidya.suresh/Documents/Personal/LTV_ test_set.xlsx')
 
 dataset<-rbind(train_dataset,test_dataset)
 
