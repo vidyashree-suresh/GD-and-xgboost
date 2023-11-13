@@ -14,8 +14,8 @@ library(earth)
 
 
 
-input<-read_read_excel('C:/Users/vidya.suresh/Documents/Personal/Bookings_channel_spend.xlsx')
-to_predict<-read_excel('C:/Users/vidya.suresh/Documents/Personal/To_be_predicted.xlsx')
+input<-read_read_excel('./Bookings_channel_spend.xlsx')
+to_predict<-read_excel('./To_be_predicted.xlsx')
 
 ##---------------------Preliminary data analysis------------------------------##
 
@@ -44,7 +44,7 @@ decompose_sales<-decompose(ts_sales,"additive")
 
 plot(decompose_sales)
 
-##Signal is seasonal through the time
+##Signal is seasonal throughout the time
 
 ##-----------------------------Stationarity and Auto-correlation tests-----------##
 
